@@ -10,6 +10,7 @@
   "author": "Bhagyesh Ganatra",
   "license": "ISC",
   "dependencies": {
+    "@mongoosejs/double": "^0.2.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
