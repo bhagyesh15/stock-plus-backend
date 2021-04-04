@@ -37,6 +37,12 @@ router.route('/toplosers').get((req,res) => {
 
 router.route('/activevolume').get((req,res) => {
     Models.StockInfo.aggregate([
+        {$addFields : {
+            'DIFF' : { $subtract : [ "$CLOSE" , "$PREV CLOSE"]},
+        }},
+        {$addFields : {
+            'DIFF%' : { $divide : [ {$multiply : [ "$DIFF", 100]} , "$PREV CLOSE" ]}
+        }},
         { $sort : {
             'VOLUME' : 1
         }},
