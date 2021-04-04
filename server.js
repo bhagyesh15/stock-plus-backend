@@ -34,6 +34,8 @@ const stocksInfoRouter = require('./routes/stocksInfo');
 const indexRouter = require('./routes/indexSymbol');
 const indexesInfoRouter = require('./routes/indexesInfo');
 
+const stocksFilterRouter = require('./routes/stocksFiltered');
+
 
 //Routes
 app.use('/', baseRouter)
@@ -41,6 +43,7 @@ app.use('/stock', stockRouter)
 app.use('/stocks', stocksInfoRouter);
 app.use('/index', indexRouter);
 app.use('/indexes', indexesInfoRouter);
+app.use('/stockf',stocksFilterRouter);
 
 app.use((req, res, next) => {
     const error = new Error('Not Found');
