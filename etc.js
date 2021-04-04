@@ -8,3 +8,8 @@ connection.db.collections(function(err,data){
         })
     }
 })
+
+
+db.symbolDetails.find().sort(
+    { 'CLOSE' : -1}
+)

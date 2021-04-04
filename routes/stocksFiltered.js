@@ -35,4 +35,15 @@ router.route('/toplosers').get((req,res) => {
         .catch(err => res.status(400).json('ERROR: '+err));
 });
 
+router.route('/activevolume').get((req,res) => {
+    Models.StockInfo.aggregate([
+        { $sort : {
+            'VOLUME' : 1
+        }},
+        { $limit : 10}
+    ])
+        .then(names => res.json(names))
+        .catch(err => res.status(400).json('ERROR: '+err));
+});
+
 module.exports = router;

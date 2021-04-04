@@ -69,8 +69,8 @@ const indexSchema = new mongoose.Schema({
 
 const StockInfo = mongoose.model('symbolInfo', stockInfoSchema, 'symbolDetails')
 const Stock = mongoose.model('stock', stockSchema, 'stocks')
-const IndexInfo = mongoose.model('indexInfo', stockInfoSchema, 'indexDetails')
-const Index = mongoose.model('index', stockSchema, 'indexes')
+const IndexInfo = mongoose.model('indexInfo', indexInfoSchema, 'indexDetails')
+const Index = mongoose.model('index', indexSchema, 'indexes')
 
 module.exports ={
     StockInfo,
