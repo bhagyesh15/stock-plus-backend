@@ -8,7 +8,7 @@ router.route('/').get((req,res) => {
 });
 
 router.route('/:symbol').get((req,res) => {
-    Models.IndexInfo.find({"Symbol" : req.params.symbol})
+    Models.IndexInfo.find({"Name" : req.params.symbol})
         .then(document => res.json(document))
         .catch(err => res.status(400).json('ERROR: '+err));
 });
