@@ -44,7 +44,7 @@ router.route('/activevolume').get((req,res) => {
             'DIFF%' : { $divide : [ {$multiply : [ "$DIFF", 100]} , "$PREV CLOSE" ]}
         }},
         { $sort : {
-            'VOLUME' : 1
+            'VOLUME' : -1
         }},
         { $limit : 10}
     ])
