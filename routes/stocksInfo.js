@@ -2,7 +2,11 @@ const router = require('express').Router();
 const Models = require('../Models')
 
 router.route('/').get((req,res) => {
-    Models.StockInfo.find()
+    Models.StockInfo.aggregate([
+        { $sort : {
+            'SYMBOL' : 1
+        }}
+    ])
         .then(names => res.json(names))
         .catch(err => res.status(400).json('ERROR: '+err));
 });
